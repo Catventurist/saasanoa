@@ -1,23 +1,23 @@
-title: Ship Your [SaaS]{class="text-primary"} at light speed
-description: Build production-ready SaaS applications with Nuxt UI's powerful components, authentication flows, and enterprise features. The same component library trusted by the entire Nuxt ecosystem.
+title: '[SaaS]{class="text-primary"}anoa aims at [Freedom]{class="text-info"}'
+description:  
 seo:
-  title: Nuxt UI SaaS Template
-  description: Create stunning, fast and production-ready SaaS applications with Nuxt UI. 100+ Vue components, authentication, dark mode, and enterprise features built on Tailwind CSS.
+  title: SaaSanoa aims for Freedom
+  description: Create stunning applications with Nuxt UI. 100+ Vue components, authentication, dark mode, and enterprise features built on Tailwind CSS.
 navigation: false
 hero:
   links:
     - label: Get started
       icon: i-lucide-arrow-right
       trailing: true
-      to: https://ui.nuxt.com/docs/getting-started/installation/nuxt
+      to: /docs/getting-started/installation
       target: _blank
       size: xl
-    - label: Use this template
+    - label: Use Template
       icon: i-simple-icons-github
       size: xl
       color: neutral
       variant: subtle
-      to: https://github.com/nuxt-ui-templates/saas
+      to: https://github.com/catventurist/saasanoa
       target: _blank
 sections:
   - title: Powered by Nuxt UI Components
