@@ -1,13 +1,20 @@
 <script setup lang="ts">
-const route = useRoute()
+import { withLeadingSlash } from 'ufo'
+import type { PageCollections } from '@nuxt/content'
 
-const { data: post } = await useAsyncData(route.path, () => queryCollection('posts').path(route.path).first())
+const route = useRoute()
+const { locale } = useI18n()
+const slug = computed(() => withLeadingSlash(String(route.params.slug)))
+
+const { data: post } = await useAsyncData('posts-' + slug.value, () => queryCollection('posts_' + locale.value as keyof PageCollections).path(route.path).first(), {
+  watch: [locale]
+})
 if (!post.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
+  throw createError({ statusCode: 404, statusMessage: $t('empty.post'), fatal: true })
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings('posts', route.path, {
+  return queryCollectionItemSurroundings('posts_' + locale.value as keyof PageCollections, route.path, {
     fields: ['description']
   })
 })
@@ -28,7 +35,7 @@ if (post.value.image?.src) {
   })
 } else {
   defineOgImageComponent('Saas', {
-    headline: 'Blog'
+    headline: $t('header.blog')
   })
 }
 </script>
@@ -45,7 +52,7 @@ if (post.value.image?.src) {
           variant="subtle"
         />
         <span class="text-muted">&middot;</span>
-        <time class="text-muted">{{ new Date(post.date).toLocaleDateString('en', { year: 'numeric', month: 'short', day: 'numeric' }) }}</time>
+        <NuxtTime :datetime="post.date" class="text-muted" />
       </template>
 
       <div class="flex flex-wrap items-center gap-3 mt-4">

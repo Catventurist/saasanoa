@@ -1,87 +1,89 @@
 <script setup lang="ts">
 const route = useRoute()
+const localePath = useLocalePath()
 
 const items = computed(() => [{
-  label: 'Docs',
-  to: '/docs',
-  active: route.path.startsWith('/docs')
+  label: $t('header.docs'),
+  to: localePath('/docs'),
+  icon: 'lucide-book-a',
+  active: route.path.startsWith(localePath('/docs')),
+  children: [
+    {
+      label: $t('header.introduction.title'),
+      description: $t('header.introduction.description'),
+      icon: 'i-lucide-book',
+      to: localePath('/docs/getting-started')
+    },
+    {
+      label: $t('header.essentials.title'),
+      description: $t('header.essentials.description'),
+      icon: 'i-lucide-wrench',
+      to: localePath('/docs/essentials')
+    }
+  ]
 }, {
-  label: 'Pricing',
-  to: '/pricing'
+  label: $t('header.pages'),
+  icon: 'lucide-notebook',
+  children: [
+    {
+      label: $t('header.changelog.title'),
+      description: $t('header.changelog.description'),
+      to: localePath('/changelog'),
+      icon: 'lucide-logs'
+    }, {
+      label: $t('header.pricing.title'),
+      description: $t('header.pricing.description'),
+      to: localePath('/pricing'),
+      icon: 'lucide-bitcoin'
+    }
+  ]
 }, {
-  label: 'Blog',
-  to: '/blog'
-}, {
-  label: 'Changelog',
-  to: '/changelog'
+  label: $t('header.blog'),
+  to: localePath('/blog'),
+  icon: 'lucide-book-open',
+  active: route.path.startsWith(localePath('/blog'))
 }])
 </script>
 
 <template>
   <UHeader>
     <template #left>
-      <NuxtLink to="/">
-        <AppLogo class="w-auto h-6 shrink-0" />
+      <NuxtLink :to="localePath('/')" class="flex flex-row gap-2 items-center rounded-xl duration-300 hover:scale-110 focus:scale-90">
+        <UColorModeImage
+          light="/logo-light.webp" dark="/logo-dark.webp" :width="24" :height="24" alt="Logo"
+          class="w-auto h-6 shrink-0" />
+        <p class="text-xl text-primary">
+          {{ $t('nav.site.title') }}
+        </p>
       </NuxtLink>
-      <TemplateMenu />
     </template>
-
-    <UNavigationMenu
-      :items="items"
-      variant="link"
-    />
+    <UNavigationMenu :items="items" variant="link" />
 
     <template #right>
-      <UColorModeButton />
-
+      <LangSwitcher />
+      <UContentSearchButton />
+      <ThemePicker />
+      <ColorModeButton />
       <UButton
-        icon="i-lucide-log-in"
-        color="neutral"
-        variant="ghost"
-        to="/login"
-        class="lg:hidden"
-      />
-
+        icon="i-lucide-log-in" color="neutral" variant="ghost"
+        :to="localePath('/login')" class="lg:hidden" />
       <UButton
-        label="Sign in"
-        color="neutral"
-        variant="outline"
-        to="/login"
-        class="hidden lg:inline-flex"
-      />
-
+        :title="$t('header.signin')" color="neutral" variant="outline"
+        :to="localePath('/login')" icon="lucide-log-in" class="hidden lg:inline-flex" />
       <UButton
-        label="Sign up"
-        color="neutral"
-        trailing-icon="i-lucide-arrow-right"
-        class="hidden lg:inline-flex"
-        to="/signup"
-      />
+        :title="$t('header.signup')" color="neutral" trailing-icon="i-lucide-arrow-big-up-dash"
+        variant="soft" class="hidden lg:inline-flex" :to="localePath('/signup')" />
     </template>
 
     <template #body>
-      <UNavigationMenu
-        :items="items"
-        orientation="vertical"
-        class="-mx-2.5"
-      />
-
+      <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
       <USeparator class="my-6" />
-
       <UButton
-        label="Sign in"
-        color="neutral"
-        variant="subtle"
-        to="/login"
-        block
-        class="mb-3"
-      />
+        icon="lucide-log-in" :title="$t('header.signin')" color="neutral" variant="subtle"
+        :to="localePath('/login')" block class="mb-3" />
       <UButton
-        label="Sign up"
-        color="neutral"
-        to="/signup"
-        block
-      />
+        icon="lucide-arrow-big-up-dash" :title="$t('header.signup')" color="neutral" variant="soft"
+        :to="localePath('/signup')" block />
     </template>
   </UHeader>
 </template>

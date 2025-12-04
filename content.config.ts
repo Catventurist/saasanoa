@@ -34,7 +34,7 @@ const createImageSchema = () => z.object({
 })
 
 export const collections = {
-  index: defineCollection({
+  index_en: defineCollection({
     source: '0.index.yml',
     type: 'page',
     schema: z.object({
@@ -72,11 +72,11 @@ export const collections = {
       })
     })
   }),
-  docs: defineCollection({
+  docs_en: defineCollection({
     source: '1.docs/**/*',
     type: 'page'
   }),
-  pricing: defineCollection({
+  pricing_en: defineCollection({
     source: '2.pricing.yml',
     type: 'page',
     schema: z.object({
@@ -109,11 +109,11 @@ export const collections = {
       })
     })
   }),
-  blog: defineCollection({
+  blog_en: defineCollection({
     source: '3.blog.yml',
     type: 'page'
   }),
-  posts: defineCollection({
+  posts_en: defineCollection({
     source: '3.blog/**/*',
     type: 'page',
     schema: z.object({
@@ -129,12 +129,121 @@ export const collections = {
       badge: z.object({ label: z.string().nonempty() })
     })
   }),
-  changelog: defineCollection({
+  changelog_en: defineCollection({
     source: '4.changelog.yml',
     type: 'page'
   }),
-  versions: defineCollection({
+  versions_en: defineCollection({
     source: '4.changelog/**/*',
+    type: 'page',
+    schema: z.object({
+      title: z.string().nonempty(),
+      description: z.string(),
+      date: z.date(),
+      image: z.string()
+    })
+  }),
+  index_fi: defineCollection({
+    source: 'fi/0.index.yml',
+    type: 'page',
+    schema: z.object({
+      hero: z.object(({
+        links: z.array(createLinkSchema())
+      })),
+      sections: z.array(
+        createBaseSchema().extend({
+          id: z.string().nonempty(),
+          orientation: orientationEnum.optional(),
+          reverse: z.boolean().optional(),
+          features: z.array(createFeatureItemSchema())
+        })
+      ),
+      features: createBaseSchema().extend({
+        items: z.array(createFeatureItemSchema())
+      }),
+      testimonials: createBaseSchema().extend({
+        headline: z.string().optional(),
+        items: z.array(
+          z.object({
+            quote: z.string().nonempty(),
+            user: z.object({
+              name: z.string().nonempty(),
+              description: z.string().nonempty(),
+              to: z.string().nonempty(),
+              target: z.string().nonempty(),
+              avatar: createImageSchema()
+            })
+          })
+        )
+      }),
+      cta: createBaseSchema().extend({
+        links: z.array(createLinkSchema())
+      })
+    })
+  }),
+  docs_fi: defineCollection({
+    source: 'fi/1.docs/**/*',
+    type: 'page'
+  }),
+  pricing_fi: defineCollection({
+    source: 'fi/2.pricing.yml',
+    type: 'page',
+    schema: z.object({
+      plans: z.array(
+        z.object({
+          title: z.string().nonempty(),
+          description: z.string().nonempty(),
+          price: z.object({
+            month: z.string().nonempty(),
+            year: z.string().nonempty()
+          }),
+          billing_period: z.string().nonempty(),
+          billing_cycle: z.string().nonempty(),
+          button: createLinkSchema(),
+          features: z.array(z.string().nonempty()),
+          highlight: z.boolean().optional()
+        })
+      ),
+      logos: z.object({
+        title: z.string().nonempty(),
+        icons: z.array(z.string())
+      }),
+      faq: createBaseSchema().extend({
+        items: z.array(
+          z.object({
+            label: z.string().nonempty(),
+            content: z.string().nonempty()
+          })
+        )
+      })
+    })
+  }),
+  blog_fi: defineCollection({
+    source: 'fi/3.blog.yml',
+    type: 'page'
+  }),
+  posts_fi: defineCollection({
+    source: 'fi/3.blog/**/*',
+    type: 'page',
+    schema: z.object({
+      image: z.object({ src: property(z.string()).editor({ input: 'media' }) }),
+      authors: z.array(
+        z.object({
+          name: z.string().nonempty(),
+          to: z.string().nonempty(),
+          avatar: z.object({ src: property(z.string()).editor({ input: 'media' }) })
+        })
+      ),
+      date: z.date(),
+      badge: z.object({ label: z.string().nonempty() })
+    })
+  }),
+  changelog_fi: defineCollection({
+    source: 'fi/4.changelog.yml',
+    type: 'page'
+  }),
+  versions_fi: defineCollection({
+    source: 'fi/4.changelog/**/*',
     type: 'page',
     schema: z.object({
       title: z.string().nonempty(),

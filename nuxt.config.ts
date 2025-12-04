@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     'nuxt-og-image',
-    'nuxt-studio'
+    'nuxt-studio',
+    '@nuxtjs/i18n'
   ],
 
   devtools: {
@@ -14,6 +15,19 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  content: {
+    database: {
+      type: 'sqlite',
+      filename: 'contents.sqlite'
+    }
+  },
+
+  ui: {
+    experimental: {
+      componentDetection: true
+    }
+  },
 
   routeRules: {
     '/docs': { redirect: '/docs/getting-started', prerender: false }
@@ -45,7 +59,46 @@ export default defineNuxtConfig({
     }
   },
 
+  fonts: {
+    families: [
+      { name: 'Finlandica', provider: 'bunny' },
+      { name: 'Arima Madurai', provider: 'bunny' },
+      { name: 'Chivo Mono', provider: 'bunny' },
+      { name: 'Caveat', provider: 'bunny' }
+    ]
+  },
+
+  i18n: {
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.yml', icon: 'cat:usa', dir: 'ltr', currency: 'USD' },
+      { code: 'fi', name: 'Suomi', file: 'fi.yml', icon: 'cat:finland', dir: 'ltr', currency: 'EUR' }
+    ],
+    skipSettingLocaleOnNavigate: true,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+      alwaysRedirect: true
+    }
+  },
+
+  icon: {
+    customCollections: [{
+      prefix: 'cat',
+      dir: './app/assets/icons'
+    }],
+    clientBundle: {
+      scan: true,
+      includeCustomCollections: true
+    }
+  },
+
   studio: {
+    i18n: {
+      defaultLocale: 'en'
+    },
     repository: {
       provider: 'github',
       owner: 'catventurist',

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
+import { withLeadingSlash } from 'ufo'
 
-const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+const route = useRoute()
+const slug = computed(() => withLeadingSlash(String(route.params.slug)))
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation-' + slug.value)
 </script>
 
 <template>

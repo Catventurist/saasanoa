@@ -2,8 +2,9 @@
 
 The name comes from Finnish language, meaning **It is OK to speak** or **Speaking is allowed**.
 
+The purpose is to create an information platform for Freedom-focused people.
+
 - With [Nuxt Studio](https://content.nuxt.com/docs/studio/setup)
-  - minimatch
 - [Original demo](https://saas-template.nuxt.dev/)
 - [Nuxt Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
 

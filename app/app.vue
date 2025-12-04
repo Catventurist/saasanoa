@@ -1,7 +1,44 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
+import * as locales from '@nuxt/ui/locale'
+import { withLeadingSlash } from 'ufo'
+import type { Collections, PageCollections } from '@nuxt/content'
+import colors from 'tailwindcss/colors'
 
-const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
+const appConfig = useAppConfig()
+const colorMode = useColorMode()
+const color = computed(() => colorMode.value === 'dark' ? (colors as never)[appConfig.ui.colors.neutral][900] : 'white')
+const radius = computed(() => `:root { --ui-radius: ${appConfig.theme.radius}rem; }`)
+const blackAsPrimary = computed(() => appConfig.theme.blackAsPrimary ? `:root { --ui-primary: black; } .dark { --ui-primary: white; }` : ':root {}')
+
+const route = useRoute()
+const { finalizePendingLocaleChange, locale } = useI18n()
+const localePath = useLocalePath()
+const slug = computed(() => withLeadingSlash(String(route.params.slug)))
+const onBeforeEnter = async () => {
+  await finalizePendingLocaleChange()
+}
+const lang = computed(() => locales[locale.value].code)
+const dir = computed(() => locales[locale.value].dir)
+
+const [{ data: navigation }, { data: files }] = await Promise.all([
+  useAsyncData('navigation-' + slug.value, () => {
+    return Promise.all([
+      queryCollectionNavigation('docs_' + locale.value as keyof PageCollections).then(data => data[0]?.children)
+    ])
+  }, {
+    watch: [locale],
+    transform: data => data.flat()
+  }),
+  useLazyAsyncData('search-' + slug.value, () => {
+    return Promise.all([
+      queryCollectionSearchSections('docs_' + locale.value as keyof Collections)
+    ])
+  }, {
+    server: false,
+    watch: [locale],
+    transform: data => data.flat()
+  })
+])
 
 useHead({
   meta: [
@@ -12,52 +49,46 @@ useHead({
   link: [
     { rel: 'icon', href: '/favicon.ico' }
   ],
+  style: [
+    { innerHTML: radius, id: 'nuxt-ui-radius', tagPriority: -2 },
+    { innerHTML: blackAsPrimary, id: 'nuxt-ui-black-as-primary', tagPriority: -2 }
+  ],
   htmlAttrs: {
-    lang: 'en'
+    lang,
+    dir
   }
 })
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt SaaS template',
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
+  titleTemplate: '%s - ' + $t('nav.site.title'),
+  ogImage: '/saas-light.png',
+  twitterImage: '/saas-light.png',
   twitterCard: 'summary_large_image'
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'), {
-  transform: data => data.find(item => item.path === '/docs')?.children || []
-})
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
-  server: false
-})
+const links = computed(() => [{
+  label: $t('header.docs'),
+  to: localePath('/docs'),
+  icon: 'lucide-book-a'
+}, {
+  label: $t('header.blog'),
+  to: localePath('/blog'),
+  icon: 'lucide-book-open'
+}, {
+  label: $t('header.changelog.title'),
+  to: localePath('/changelog'),
+  icon: 'lucide-logs'
+}])
 
-const links = [{
-  label: 'Docs',
-  icon: 'i-lucide-book',
-  to: '/docs/getting-started'
-}, {
-  label: 'Pricing',
-  icon: 'i-lucide-credit-card',
-  to: '/pricing'
-}, {
-  label: 'Blog',
-  icon: 'i-lucide-pencil',
-  to: '/blog'
-}, {
-  label: 'Changelog',
-  icon: 'i-lucide-history',
-  to: '/changelog'
-}]
-
-provide('navigation', navigation)
+provide('navigation-' + slug.value, navigation)
 </script>
 
 <template>
-  <UApp>
+  <UApp :locale="locales[locale]">
     <NuxtLoadingIndicator />
 
     <NuxtLayout>
-      <NuxtPage />
+      <NuxtPage :transition="{ name: 'page', mode: 'in-out', onBeforeEnter }" />
     </NuxtLayout>
 
     <ClientOnly>
@@ -71,3 +102,15 @@ provide('navigation', navigation)
     </ClientOnly>
   </UApp>
 </template>
+
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  filter: blur(3rem);
+}
+</style>

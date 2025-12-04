@@ -1,17 +1,26 @@
 <script setup lang="ts">
+import { withLeadingSlash } from 'ufo'
+import type { PageCollections } from '@nuxt/content'
+import type { PageLink } from '@nuxt/ui'
+
 definePageMeta({
   layout: 'docs'
 })
 
+const localePath = useLocalePath()
 const route = useRoute()
+const { locale } = useI18n()
+const slug = computed(() => withLeadingSlash(String(route.params.slug)))
 
-const { data: page } = await useAsyncData(route.path, () => queryCollection('docs').path(route.path).first())
+const { data: page } = await useAsyncData('docs-' + slug.value, () => queryCollection('docs_' + locale.value as keyof PageCollections).path(route.path).first(), {
+  watch: [locale]
+})
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+  throw createError({ statusCode: 404, message: $t('empty.docs'), fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings('docs', route.path, {
+const { data: surround } = await useAsyncData(`${route.path}-surround-` + slug.value, () => {
+  return queryCollectionItemSurroundings('docs_' + locale.value as keyof PageCollections, route.path, {
     fields: ['description']
   })
 })
@@ -27,6 +36,24 @@ useSeoMeta({
 })
 
 defineOgImageComponent('Saas')
+
+const links = ref<PageLink[]>([
+  {
+    label: $t('links.edit'),
+    icon: 'i-lucide-file-pen',
+    to: `https://github.com/catventurist/saasanoa/edit/cat/docs/content/${page?.value?.stem}.md`
+  },
+  {
+    label: $t('links.star'),
+    icon: 'i-lucide-star',
+    to: 'https://github.com/catventurist/saasanoa'
+  },
+  {
+    label: $t('links.releases'),
+    icon: 'i-lucide-rocket',
+    to: localePath('/changelog')
+  }
+])
 </script>
 
 <template>
@@ -51,7 +78,12 @@ defineOgImageComponent('Saas')
       v-if="page?.body?.toc?.links?.length"
       #right
     >
-      <UContentToc :links="page.body.toc.links" />
+      <UContentToc :links="page.body.toc.links">
+        <template #bottom>
+          <USeparator v-if="page.body?.toc?.links?.length" class="bg-radial from-primary/40 to-transparent" />
+          <UPageLinks :title="$t('links.title')" :links="links" />
+        </template>
+      </UContentToc>
     </template>
   </UPage>
 </template>
