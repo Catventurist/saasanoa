@@ -29,10 +29,6 @@ export default defineNuxtConfig({
     }
   },
 
-  routeRules: {
-    '/docs': { redirect: '/docs/getting-started', prerender: false }
-  },
-
   experimental: {
     scanPageMeta: true
   },
