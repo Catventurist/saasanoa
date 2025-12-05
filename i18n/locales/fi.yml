@@ -124,7 +124,9 @@ events:
     images: Tapahtuman kuvat
 links:
   title: Yhteisö
-  edit: Muokkaa sivua
+  edit:
+    git: Muokkaa Githubissa
+    editor: Käytä Muokkainta
   star: GitHub-tähti
   releases: Muutokset
   copymd: Kopioi Markdown-linkki
@@ -187,6 +189,7 @@ login:
   with:
     google: Google-kirjautuminen
     github: Github-kirjautuminen
+    githlab: Gitlab-kirjautuminen
   submitted: Lähetetty
   welcome:
     title: Tervetuloa

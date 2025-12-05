@@ -47,8 +47,6 @@ useSeoMeta({
           unwrap="p"
         />
       </template>
-
-      <PromotionalVideo />
     </UPageHero>
 
     <UPageSection

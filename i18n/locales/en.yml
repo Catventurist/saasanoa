@@ -132,7 +132,9 @@ events:
     images: Event Images
 links:
   title: Community
-  edit: Edit this page
+  edit:
+    git: Edit in Github
+    editor: Use Editor
   star: Star on GitHub
   releases: Releases
   copymd: Copy Markdown link
@@ -195,6 +197,7 @@ login:
   with:
     google: Login with Google
     github: Login with Github
+    gitlab: Login with Gitlab
   submitted: Submitted
   welcome:
     title: Welcome back

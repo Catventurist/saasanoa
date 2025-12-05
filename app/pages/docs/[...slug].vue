@@ -39,9 +39,14 @@ defineOgImageComponent('Saas')
 
 const links = ref<PageLink[]>([
   {
-    label: $t('links.edit'),
+    label: $t('links.edit.git'),
     icon: 'i-lucide-file-pen',
     to: `https://github.com/catventurist/saasanoa/edit/cat/docs/content/${page?.value?.stem}.md`
+  },
+  {
+    label: $t('links.edit.editor'),
+    icon: 'i-lucide-pen',
+    to: '/_studio'
   },
   {
     label: $t('links.star'),
