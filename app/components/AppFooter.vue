@@ -61,7 +61,7 @@ function onSubmit() {
   <Motion
     as-child :initial="{ opacity: 0, y: 10 }" :while-in-view="{ opacity: 1, y: 0 }"
     :transition="{ duration: 0.3, y: { type: 'spring', stiffness: 260, damping: 20 } }">
-    <USeparator icon="lucide:cat" class="h-1 bg-radial from-primary/40 to-transparent" />
+    <USeparator icon="lucide:cat" class="h-1 bg-radial from-primary/40 to-transparent mt-2" />
     <UFooter :ui="{ top: 'border-b border-default' }">
       <template #top>
         <UContainer>

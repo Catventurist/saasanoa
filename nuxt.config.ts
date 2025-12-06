@@ -95,6 +95,7 @@ export default defineNuxtConfig({
     i18n: {
       defaultLocale: 'en'
     },
+    route: '/catmin',
     repository: {
       provider: 'github',
       owner: 'catventurist',

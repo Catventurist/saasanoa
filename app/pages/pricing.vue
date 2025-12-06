@@ -56,6 +56,8 @@ const items = ref([
       :title="page.title"
       :description="page.description"
     >
+      <ClientOnly>
+      </ClientOnly>
       <template #links>
         <UTabs
           v-model="isYearly"
@@ -71,7 +73,6 @@ const items = ref([
         />
       </template>
     </UPageHero>
-
     <UContainer>
       <UPricingPlans scale>
         <UPricingPlan

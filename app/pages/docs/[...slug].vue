@@ -41,12 +41,7 @@ const links = ref<PageLink[]>([
   {
     label: $t('links.edit.git'),
     icon: 'i-lucide-file-pen',
-    to: `https://github.com/catventurist/saasanoa/edit/cat/docs/content/${page?.value?.stem}.md`
-  },
-  {
-    label: $t('links.edit.editor'),
-    icon: 'i-lucide-pen',
-    to: '/_studio'
+    to: `https://github.com/catventurist/saasanoa/edit/cat/content/${page?.value?.stem}.md`
   },
   {
     label: $t('links.star'),

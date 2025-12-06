@@ -125,6 +125,6 @@ cta:
       variant: subtle
       icon: i-simple-icons-github
     - label: Apua
-      to: '/fi/ukk'
+      to: '/fi/docs'
       leadingIcon: i-lucide-list-check
       variant: outline

@@ -11,7 +11,7 @@ const localePath = useLocalePath()
       :to="localePath('/changelog')" icon="lucide-list"
       aria-label="Changelog" color="error" variant="ghost" title="Changelog" />
     <UButton
-      :to="localePath('/faq')" icon="lucide-info" aria-label="Info"
+      :to="localePath('/pricing')" icon="lucide-info" aria-label="Info"
       color="neutral" variant="ghost" title="Info" />
   </div>
 </template>

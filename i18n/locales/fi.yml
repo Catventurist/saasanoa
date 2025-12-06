@@ -2,6 +2,9 @@ site:
   title: SaaSanoa
   description: Vapaa ja avoin alusta
   offer: Julkaisupäivä lähenee
+studio:
+  tooltips:
+    toggleStudio: Avaa muokkain
 pricing:
   monthly: Kuukausittain
   yearly: Vuosittain

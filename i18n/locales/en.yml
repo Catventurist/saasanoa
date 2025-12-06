@@ -2,6 +2,9 @@ site:
   title: SaaSanoa
   description: Web platform for freedom
   offer: Launch begins
+studio:
+  tooltips:
+    toggleStudio: Toggle Studio
 pricing:
   monthly: Monthly
   yearly: Yearly
