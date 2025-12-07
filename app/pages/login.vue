@@ -76,6 +76,9 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 
 <template>
   <div>
+    <ClientOnly>
+     
+    </ClientOnly>
     <UAuthForm
       :fields="fields" :schema="schema" :providers="providers" :title="$t('login.welcome.title')"
       :separator="$t('login.or')" icon="i-lucide-lock" @submit="onSubmit">
