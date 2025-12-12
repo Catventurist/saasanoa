@@ -77,7 +77,6 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 <template>
   <div>
     <ClientOnly>
-     
     </ClientOnly>
     <UAuthForm
       :fields="fields" :schema="schema" :providers="providers" :title="$t('login.welcome.title')"

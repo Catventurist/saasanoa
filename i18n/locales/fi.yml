@@ -2,6 +2,11 @@ site:
   title: SaaSanoa
   description: Vapaa ja avoin alusta
   offer: Julkaisupäivä lähenee
+user:
+  title: Catventurist
+  role: Vapausintoilija
+  description: Vuosikymmeniä koodausta ja jonkin verran seikkailuja
+  location: Espanja
 studio:
   tooltips:
     toggleStudio: Avaa muokkain
@@ -74,6 +79,9 @@ header:
   animations: 
     title: Animaatiot
     description: Tailwind & Motion.
+  users:
+    title: Yhteisön jäsen
+    description: Hitaasti mutta varmasti.
 empty: 
   page: 
     title: Sivua ei löytynyt
@@ -598,20 +606,20 @@ icons:
   titleani: Animoituja Kuvakkeita
   titledrag: Raahattavia Satunnaisia
 about: 
-  badge: Minusta
-  title: Jatkuvaa oppimista ja
+  badge: Tietoa
+  title: Jatkuvaa oppimista
   highlight: Koodailua
   description: Tavoitteena on tarjota yhteisöille päteviä apuvälineitä, joden avulla vapaus maksimoidaan.
   vision:
-    badge: Visio
-    description: Maailma, jossa kaikille on tarpeeksi, jolloin luominen ja päättelykyky on voimissaan.
+    title: Visio
+    description: Maailma, jossa tietoa on tarpeeksi, jolloin luominen ja päättelykyky on voimissaan. Itsenäiset päätökset ja moraalin pohdinta.
   mission:
-    badge: Tehtävä
-    description: Tiedon vapaa kulku ja sensuurivapaus.
+    title: Tehtävä
+    description: Tiedon vapaa kulku ja sensuurivapaus. Se on valtaa, jota halutaan piilottaa moninaisin keinoin.
   approach: 
     badge: Lähestymistapa
     title: Ideoista todeksi
-    description: Jatkuva kasvu virtuaalimaailmassa.
+    description: Jatkuva kasvu virtuaalimaailmassa on mahdollista, kunhan välikädet karsitaan. Avoimuus on avainasemassa, jonka varmistaa Avoin lähdekoodi ja hyväsydämiset ihmiset.
   cta: 
     badge: Luovuus
     title: Ajatusten esittäminen
@@ -638,6 +646,22 @@ about:
     countries: Paikkoja seikkailtuna
     comments: Positiivisia kommentteja
     available: Lähestyttävissä virtuaalisesti
+    users: Jäseniä kertynyt
+    experience: Vuotta kokemusta
+  journey: 
+    title: Matka
+    start: 
+      title: Alku
+      description: Amigalla pelaamista ja ohjelmointia
+    internet: 
+      title: Internet
+      description: Kiinnostus netistä löytyvään tietoon
+    stop: 
+      title: Pysähdys
+      description: Massapsykoosin ja sokean auktoriteettiuskon huipentuma
+    restart: 
+      title: Uudestaan
+      description: Vanhojen projektien kaivelua, päivitystä ja julkaisua
 prose:
   cssvariable: CSS Muuttuja
   description: Kuvaus

@@ -2,6 +2,11 @@ site:
   title: SaaSanoa
   description: Web platform for freedom
   offer: Launch begins
+user:
+  title: Catventurist
+  role: Freedom enthusiast
+  description: Decades of coding and years of adventures
+  location: Spain
 studio:
   tooltips:
     toggleStudio: Toggle Studio
@@ -79,6 +84,9 @@ header:
   animations: 
     title: Animations
     description: Tailwind & Motion.
+  users:
+    title: Community Members
+    description: Slowly but surely.
 empty: 
   page:
     title: Page not found
@@ -599,8 +607,8 @@ icons:
   titleani: Icons with Motion
   titledrag: Unanimated and Draggable
 about:
-  badge: About me
-  title: Constant learning and
+  badge: About
+  title: Constant learning
   highlight: Coding
   description: On a mission to empower communities with cutting-edge tools, transforming how we operate and innovate. Experience the future of freedom today.
   vision:
@@ -608,11 +616,11 @@ about:
     description: Envisioning a world where tools are accessible to everyone, enabling unprecedented levels of creativity, efficiency and problem-solving.
   mission:
     badge: Mission
-    description: Maximizing freedom and flow of information.
+    description: Maximizing freedom and flow of information. At the current time it is power, hence the hiding.
   approach: 
     badge: Approach
     title: Transforming ideas into reality
-    description: The goal is to grow. Making it happen!
+    description: The goal is to grow, in many areas. Making it happen, even it is difficult and hardly rewarding. 
   cta: 
     badge: Creativity
     title: Making something unexpected
@@ -639,6 +647,22 @@ about:
     countries: Places visited
     comments: Positive comments
     available: Available virtually
+    users: Committed creators
+    experience: Years of experience
+  journey: 
+    title: The Journey
+    start: 
+      title: The Beginning
+      description: Playing with Amiga and learning programming
+    internet: 
+      title: Internet
+      description: Interested in how things work online
+    stop: 
+      title: Lockdowns
+      description: Observing mass psychosis and blind obedience
+    restart: 
+      title: Restart
+      description: Searching old code projects, updating and publishing them
 values:
   title: Core Values
   description: Making things which matter.

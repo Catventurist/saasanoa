@@ -11,27 +11,20 @@ interface TeamMember {
   }[]
 }
 
-interface TeamProps {
-  title?: string
-  subtitle?: string
-  members: TeamMember[]
-  class?: string
-}
-
 const defaultMembers: TeamMember[] = [
   {
-    name: 'Alex Morgan',
-    role: 'Founder & CEO',
-    bio: '10+ years of experience in product development and team leadership. Passionate about building products that make a difference.',
+    name: $t('user.title'),
+    role: $t('user.role'),
+    bio: $t('user.description'),
     imageUrl: '/catbirchdark.webp',
-    location: 'San Francisco, CA',
+    location: $t('user.location'),
     socialLinks: [
-      { platform: 'gitlab', url: 'https://gitlab.com' },
-      { platform: 'github', url: 'https://github.com' },
-      { platform: 'hive', url: 'https://ecency.com' }
+      { platform: 'gitlab', url: 'https://gitlab.com/catventurist' },
+      { platform: 'github', url: 'https://github.com/catventurist' },
+      { platform: 'hive', url: 'https://ecency.com/@catventurist' }
     ]
-  },
-  {
+  }
+  /* {
     name: 'Sarah Chen',
     role: 'Lead Designer',
     bio: 'Award-winning designer with a passion for creating beautiful, functional interfaces that delight users.',
@@ -63,14 +56,8 @@ const defaultMembers: TeamMember[] = [
       { platform: 'gitlab', url: 'https://gitlab.com' },
       { platform: 'hive', url: 'https://ecency.com' }
     ]
-  }
+  } */
 ]
-
-const team = {
-  title: 'Meet Our Team',
-  subtitle: 'We are a diverse group of passionate individuals working together to build amazing products.',
-  members: defaultMembers
-} as TeamProps
 </script>
 
 <template>
@@ -80,20 +67,20 @@ const team = {
     <div class="container px-4 md:px-6">
       <div class="mx-auto mb-16 max-w-3xl text-center">
         <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-          {{ team.title }}
+          {{ $t('header.users.title') }}
         </h2>
         <p class="text-muted mx-auto max-w-2xl md:text-lg">
-          {{ team.subtitle }}
+          {{ $t('header.users.description') }}
         </p>
       </div>
       <div class="flex flex-wrap items-center justify-center gap-8">
-        <div v-for="member in team.members" :key="member.name" class="group bg-muted/70 h-[420px] w-96 overflow-hidden rounded-xl opacity-100 shadow-sm transition-opacity hover:opacity-75">
+        <div v-for="member in defaultMembers" :key="member.name" class="group bg-muted/70 h-[420px] w-96 overflow-hidden rounded-xl opacity-100 shadow-sm transition-opacity hover:opacity-75">
           <div class="relative h-[200px] w-full overflow-hidden">
             <NuxtImg :src="member.imageUrl" :alt="member.name" class="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
           </div>
           <div class="flex h-[220px] flex-col p-5">
-            <div v-if="member.location" class="text-muted mb-1 flex items-center text-xs">
-              <div class="bg-primary mr-1.5 size-1.5 rounded-full" />
+            <div v-if="member.location" class="text-muted mb-1 flex items-center text-xs duration-300 hover:text-default">
+              <div class="bg-info mr-1.5 size-1.5 rounded-full" />
               {{ member.location }}
             </div>
             <h3 class="mb-1 text-xl font-bold">
