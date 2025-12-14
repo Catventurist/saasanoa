@@ -1,9 +1,40 @@
-title: '[SaaS]{class="text-primary"}anoa aims for [Freedom]{class="text-info"}'
+title: '[SaaSanoa]{class="text-primary"} aims for [Freedom]{class="text-info"}'
+cta:
+  title: Ready to build something great?
+  description: Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start creating today.
+  links:
+    - label: Start building
+      to: /docs/getting-started/installation
+      target: _blank
+      trailingIcon: i-lucide-arrow-right
+    - label: View on GitHub
+      to: https://github.com/catventurist/saasanoa
+      target: _blank
+      variant: subtle
+      icon: i-simple-icons-github
 description: Make some great content and share the information.
-seo:
-  title: SaaSanoa aims for Freedom
-  description: Create stunning, fast and production-ready applications with Nuxt UI. 100+ Vue components, authentication, dark mode, and enterprise features built on Tailwind CSS.
-navigation: false
+features:
+  title: Everything You Need to Ship
+  description: Stop building from scratch. Focus on your unique features while Nuxt UI handles the foundations with battle-tested components and patterns.
+  items:
+    - title: Beautiful Design System
+      description: Semantic color aliases, comprehensive design tokens, and Tailwind Variants for consistent, customizable styling.
+      icon: i-lucide-palette
+    - title: Accessible by Default
+      description: Built on Reka UI for robust accessibility. WCAG compliant components that work for everyone, everywhere.
+      icon: i-lucide-accessibility
+    - title: Developer Experience
+      description: Auto-imports, hot module replacement, and comprehensive documentation. Build faster with less friction.
+      icon: i-lucide-terminal
+    - title: SEO Optimized
+      description: Server-side rendering, automatic meta tags, sitemap generation, and Open Graph images out of the box.
+      icon: i-lucide-search
+    - title: Production Ready
+      description: Error handling, loading states, form validation, and security best practices built into every component.
+      icon: i-lucide-check-circle
+    - title: Infinitely Customizable
+      description: Override any style with the ui prop, customize globally with AppConfig, or use Tailwind classes directly.
+      icon: i-lucide-settings
 hero:
   links:
     - label: Get started
@@ -19,6 +50,7 @@ hero:
       variant: subtle
       to: https://github.com/catventurist/saasanoa
       target: _blank
+navigation: false
 sections:
   - title: Powered by Nuxt UI Components
     description: Access the complete Nuxt UI component library with 100+ beautifully styled, accessible, and customizable Vue components. Everything you need to build professional SaaS applications.
@@ -48,28 +80,9 @@ sections:
       - name: Global Ready
         description: Built-in i18n support for 50+ languages with RTL/LTR layouts and @nuxt/fonts integration.
         icon: i-lucide-globe
-features:
-  title: Everything You Need to Ship
-  description: Stop building from scratch. Focus on your unique features while Nuxt UI handles the foundations with battle-tested components and patterns.
-  items:
-    - title: Beautiful Design System
-      description: Semantic color aliases, comprehensive design tokens, and Tailwind Variants for consistent, customizable styling.
-      icon: i-lucide-palette
-    - title: Accessible by Default
-      description: Built on Reka UI for robust accessibility. WCAG compliant components that work for everyone, everywhere.
-      icon: i-lucide-accessibility
-    - title: Developer Experience
-      description: Auto-imports, hot module replacement, and comprehensive documentation. Build faster with less friction.
-      icon: i-lucide-terminal
-    - title: SEO Optimized
-      description: Server-side rendering, automatic meta tags, sitemap generation, and Open Graph images out of the box.
-      icon: i-lucide-search
-    - title: Production Ready
-      description: Error handling, loading states, form validation, and security best practices built into every component.
-      icon: i-lucide-check-circle
-    - title: Infinitely Customizable
-      description: Override any style with the ui prop, customize globally with AppConfig, or use Tailwind classes directly.
-      icon: i-lucide-settings
+seo:
+  title: SaaSanoa aims for Freedom
+  description: Create stunning, fast and production-ready applications with Nuxt UI. 100+ Vue components, authentication, dark mode, and enterprise features built on Tailwind CSS.
 testimonials:
   headline: Trusted by Developers
   title: Join Thousands Building with Nuxt UI
@@ -135,16 +148,3 @@ testimonials:
         description: Integration Specialist at TechFlow
         avatar:
           src: https://i.pravatar.cc/120?img=14
-cta:
-  title: Ready to build something great?
-  description: Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start creating today.
-  links:
-    - label: Start building
-      to: /docs/getting-started/installation/nuxt
-      target: _blank
-      trailingIcon: i-lucide-arrow-right
-    - label: View on GitHub
-      to: https://github.com/catventurist/saasanoa
-      target: _blank
-      variant: subtle
-      icon: i-simple-icons-github
