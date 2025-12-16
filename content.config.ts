@@ -33,6 +33,17 @@ const createImageSchema = () => z.object({
   srcset: z.string().optional()
 })
 
+const createAuthorsSchema = () => z.object({
+  name: z.string(),
+  avatar: z.object({
+    src: property(z.string()).editor({ input: 'media' }),
+    alt: z.string()
+  }),
+  to: z.string(),
+  username: z.string(),
+  modules: z.array(z.string())
+})
+
 export const collections = {
   index_en: defineCollection({
     source: '0.index.yml',
@@ -143,6 +154,13 @@ export const collections = {
       image: z.string()
     })
   }),
+  authors_en: defineCollection({
+    type: 'page',
+    source: {
+      include: '5.authors/**/*'
+    },
+    schema: createAuthorsSchema()
+  }),
   index_fi: defineCollection({
     source: 'fi/0.index.yml',
     type: 'page',
@@ -251,5 +269,12 @@ export const collections = {
       date: z.date(),
       image: z.string()
     })
+  }),
+  authors_fi: defineCollection({
+    type: 'page',
+    source: {
+      include: 'fi/5.authors/**/*'
+    },
+    schema: createAuthorsSchema()
   })
 }

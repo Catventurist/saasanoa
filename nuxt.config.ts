@@ -20,6 +20,9 @@ export default defineNuxtConfig({
     database: {
       type: 'sqlite',
       filename: 'contents.sqlite'
+    },
+    experimental: {
+      sqliteConnector: 'native'
     }
   },
 
@@ -93,7 +96,7 @@ export default defineNuxtConfig({
 
   studio: {
     i18n: {
-      defaultLocale: 'en'
+      defaultLocale: 'fi'
     },
     route: '/catmin',
     repository: {
