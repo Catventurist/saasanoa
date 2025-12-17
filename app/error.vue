@@ -97,10 +97,19 @@ provide('navigation-' + slug.value, navigation)
   <UApp :locale="locales[locale]">
     <NuxtLoadingIndicator />
     <NuxtLayout>
-      <UError :error="error" :transition="{ name: 'my', mode: 'out-in', onBeforeEnter }" />
+      <UError
+        :error="error"
+        :transition="{ name: 'my', mode: 'out-in', onBeforeEnter }"
+      />
     </NuxtLayout>
     <ClientOnly>
-      <LazyUContentSearch :files="files" shortcut="meta_k" :navigation="navigation" :links="links" :fuse="{ resultLimit: 24 }" />
+      <LazyUContentSearch
+        :files="files"
+        shortcut="meta_k"
+        :navigation="navigation"
+        :links="links"
+        :fuse="{ resultLimit: 24 }"
+      />
     </ClientOnly>
   </UApp>
 </template>

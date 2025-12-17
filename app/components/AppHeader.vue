@@ -48,16 +48,27 @@ const items = computed(() => [{
 <template>
   <UHeader>
     <template #left>
-      <NuxtLink :to="localePath('/')" class="flex flex-row gap-2 items-center rounded-xl duration-300 hover:scale-110 focus:scale-90">
+      <NuxtLink
+        :to="localePath('/')"
+        class="flex flex-row gap-2 items-center rounded-xl duration-300 hover:scale-110 focus:scale-90"
+      >
         <UColorModeImage
-          light="/logo-light.webp" dark="/logo-dark.webp" :width="24" :height="24" alt="Logo"
-          class="w-auto h-6 shrink-0" />
+          light="/logo-light.webp"
+          dark="/logo-dark.webp"
+          :width="24"
+          :height="24"
+          alt="Logo"
+          class="w-auto h-6 shrink-0"
+        />
         <p class="text-xl text-primary">
           {{ $t('nav.site.title') }}
         </p>
       </NuxtLink>
     </template>
-    <UNavigationMenu :items="items" variant="link" />
+    <UNavigationMenu
+      :items="items"
+      variant="link"
+    />
 
     <template #right>
       <LangSwitcher />
@@ -65,25 +76,54 @@ const items = computed(() => [{
       <ThemePicker />
       <ColorModeButton />
       <UButton
-        icon="i-lucide-log-in" color="neutral" variant="ghost"
-        :to="localePath('/login')" class="lg:hidden" />
+        icon="i-lucide-log-in"
+        color="neutral"
+        variant="ghost"
+        :to="localePath('/login')"
+        class="lg:hidden"
+      />
       <UButton
-        :title="$t('header.signin')" color="neutral" variant="outline"
-        :to="localePath('/login')" icon="lucide-log-in" class="hidden lg:inline-flex" />
+        :title="$t('header.signin')"
+        color="neutral"
+        variant="outline"
+        :to="localePath('/login')"
+        icon="lucide-log-in"
+        class="hidden lg:inline-flex"
+      />
       <UButton
-        :title="$t('header.signup')" color="neutral" trailing-icon="i-lucide-arrow-big-up-dash"
-        variant="soft" class="hidden lg:inline-flex" :to="localePath('/signup')" />
+        :title="$t('header.signup')"
+        color="neutral"
+        trailing-icon="i-lucide-arrow-big-up-dash"
+        variant="soft"
+        class="hidden lg:inline-flex"
+        :to="localePath('/signup')"
+      />
     </template>
 
     <template #body>
-      <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
+      <UNavigationMenu
+        :items="items"
+        orientation="vertical"
+        class="-mx-2.5"
+      />
       <USeparator class="my-6" />
       <UButton
-        icon="lucide-log-in" :title="$t('header.signin')" color="neutral" variant="subtle"
-        :to="localePath('/login')" block class="mb-3" />
+        icon="lucide-log-in"
+        :title="$t('header.signin')"
+        color="neutral"
+        variant="subtle"
+        :to="localePath('/login')"
+        block
+        class="mb-3"
+      />
       <UButton
-        icon="lucide-arrow-big-up-dash" :title="$t('header.signup')" color="neutral" variant="soft"
-        :to="localePath('/signup')" block />
+        icon="lucide-arrow-big-up-dash"
+        :title="$t('header.signup')"
+        color="neutral"
+        variant="soft"
+        :to="localePath('/signup')"
+        block
+      />
     </template>
   </UHeader>
 </template>

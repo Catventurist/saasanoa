@@ -83,39 +83,60 @@ const items: ItemProps[] = [
     <div class="relative z-10 container mx-auto max-w-6xl px-4 md:px-6">
       <div class="mx-auto mb-16 max-w-3xl text-center">
         <motion.div
-          :initial="{ opacity: 0, y: 10 }" :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, ease: 'easeOut' }" class="mb-4 flex justify-center">
-          <UBadge variant="outline" class="border-primary/20 bg-primary/5 rounded-full px-4 py-1 text-sm font-medium">
-            <Icon name="lucide-sparkles" class="text-primary mr-1 size-3.5" />
+          :initial="{ opacity: 0, y: 10 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, ease: 'easeOut' }"
+          class="mb-4 flex justify-center"
+        >
+          <UBadge
+            variant="outline"
+            class="border-primary/20 bg-primary/5 rounded-full px-4 py-1 text-sm font-medium"
+          >
+            <Icon
+              name="lucide-sparkles"
+              class="text-primary mr-1 size-3.5"
+            />
             {{ $t('about.badge') }}
           </UBadge>
         </motion.div>
         <motion.h1
-          :initial="{ opacity: 0, y: 20 }" :animate="{ opacity: 1, y: 0 }"
+          :initial="{ opacity: 0, y: 20 }"
+          :animate="{ opacity: 1, y: 0 }"
           :transition="{ duration: 0.6, delay: 0.1, ease: 'easeOut' }"
-          class="bg-clip-text bg-linear-to-b from-primary to-primary/70 text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+          class="bg-clip-text bg-linear-to-b from-primary to-primary/70 text-4xl font-bold tracking-tight text-transparent sm:text-5xl"
+        >
           {{ $t('about.title') }}
         </motion.h1>
         <motion.p
-          :initial="{ opacity: 0, y: 20 }" :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.6, delay: 0.2, ease: 'easeOut' }" class="text-muted mt-4 text-xl">
+          :initial="{ opacity: 0, y: 20 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.6, delay: 0.2, ease: 'easeOut' }"
+          class="text-muted mt-4 text-xl"
+        >
           {{ $t('about.description') }}
         </motion.p>
       </div>
       <div class="mb-20">
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <motion.div
-            v-for="stat in stats" :key="stat.label" :initial="{ opacity: 0, y: 20, scale: 0.9 }"
-            :while-in-view="{ opacity: 1, y: 0 }" :while-hover="{ scale: 1.1, transition: { delay: 0 } }"
+            v-for="stat in stats"
+            :key="stat.label"
+            :initial="{ opacity: 0, y: 20, scale: 0.9 }"
+            :while-in-view="{ opacity: 1, y: 0 }"
+            :while-hover="{ scale: 1.1, transition: { delay: 0 } }"
             :transition="{ duration: 0.6, delay: stat.delay, ease: 'easeOut' }"
-            class="group border-default/30 bg-muted/70 relative overflow-hidden rounded-xl border p-6">
+            class="group border-default/30 bg-muted/70 relative overflow-hidden rounded-xl border p-6"
+          >
             <div
               class="absolute -top-6 -right-6 size-24 rounded-full bg-linear-to-br opacity-20 blur-2xl transition-all duration-500 group-hover:opacity-30 group-hover:blur-3xl"
-              :class="stat.color" />
+              :class="stat.color"
+            />
             <div class="flex items-center gap-4">
               <Icon
-                :name="stat.icon" :class="stat.color"
-                class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-primary/20 to-default/80" />
+                :name="stat.icon"
+                :class="stat.color"
+                class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-primary/20 to-default/80"
+              />
               <div class="flex flex-col">
                 <h3 class="flex items-baseline text-3xl font-bold tracking-tight">
                   {{ stat.value }}
@@ -136,10 +157,16 @@ const items: ItemProps[] = [
           <motion.div
             :initial="{ opacity: 0, y: 30 }"
             :while-in-view="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.7, delay: 0.1, ease: 'easeOut' }" class="relative space-y-6">
+            :transition="{ duration: 0.7, delay: 0.1, ease: 'easeOut' }"
+            class="relative space-y-6"
+          >
             <div
-              class="from-primary/80 to-primary/60 inline-flex size-14 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-lg">
-              <Icon name="lucide-zap" class="size-6" />
+              class="from-primary/80 to-primary/60 inline-flex size-14 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-lg"
+            >
+              <Icon
+                name="lucide-zap"
+                class="size-6"
+              />
             </div>
             <h2 class="text-2xl font-bold tracking-tight">
               {{ $t('about.mission.title') }}
@@ -151,10 +178,16 @@ const items: ItemProps[] = [
           <motion.div
             :initial="{ opacity: 0, y: 30 }"
             :while-in-view="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.7, delay: 0.3, ease: 'easeOut' }" class="relative space-y-6">
+            :transition="{ duration: 0.7, delay: 0.3, ease: 'easeOut' }"
+            class="relative space-y-6"
+          >
             <div
-              class="inline-flex size-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-500/80 to-blue-500/60 text-white shadow-lg">
-              <Icon name="lucide-line-chart" class="size-6" />
+              class="inline-flex size-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-500/80 to-blue-500/60 text-white shadow-lg"
+            >
+              <Icon
+                name="lucide-line-chart"
+                class="size-6"
+              />
             </div>
             <h2 class="text-2xl font-bold tracking-tight">
               {{ $t('about.vision.title') }}
@@ -167,11 +200,18 @@ const items: ItemProps[] = [
 
         <motion.div
           :initial="{ opacity: 0, y: 30 }"
-          :while-in-view="{ opacity: 1, y: 0 }" :while-hover="{ scale: 1.1, transition: { duration: 0.3 } }"
-          :transition="{ duration: 0.7, delay: 0.5, ease: 'easeOut' }" class="mt-16 flex items-start gap-4">
+          :while-in-view="{ opacity: 1, y: 0 }"
+          :while-hover="{ scale: 1.1, transition: { duration: 0.3 } }"
+          :transition="{ duration: 0.7, delay: 0.5, ease: 'easeOut' }"
+          class="mt-16 flex items-start gap-4"
+        >
           <div
-            class="from-primary/20 to-primary/5 text-primary inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br">
-            <Icon name="lucide-building" class="size-5" />
+            class="from-primary/20 to-primary/5 text-primary inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br"
+          >
+            <Icon
+              name="lucide-building"
+              class="size-5"
+            />
           </div>
           <p class="text-muted text-xl leading-relaxed">
             {{ $t('about.approach.description') }}
@@ -183,19 +223,24 @@ const items: ItemProps[] = [
           :initial="{ opacity: 0, y: 20 }"
           :while-in-view="{ opacity: 1, y: 0 }"
           :transition="{ duration: 0.6, ease: 'easeOut' }"
-          class="mb-10 text-center text-2xl font-bold tracking-tight md:text-3xl">
+          class="mb-10 text-center text-2xl font-bold tracking-tight md:text-3xl"
+        >
           {{ $t('about.journey.title') }}
         </motion.h2>
         <div class="border-border/60 relative ml-4 border-l pl-8 md:ml-0 md:border-none md:pl-0">
           <motion.div
-            v-for="(item, index) in items" :key="item.title"
-            :initial="{ opacity: 0, x: -20 }" :while-hover="{ scale: 1.1, transition: { delay: 0.1 } }"
+            v-for="(item, index) in items"
+            :key="item.title"
+            :initial="{ opacity: 0, x: -20 }"
+            :while-hover="{ scale: 1.1, transition: { delay: 0.1 } }"
             :while-in-view="{ opacity: 1, x: 0 }"
             :transition="{ duration: 0.5, delay: 0.1 * index, ease: 'easeOut' }"
-            class=" relative mb-10 md:grid md:grid-cols-5 md:gap-8">
+            class=" relative mb-10 md:grid md:grid-cols-5 md:gap-8"
+          >
             <div class="md:col-span-1">
               <div
-                class="border-border bg-muted/70 absolute -left-12 flex size-8 items-center justify-center rounded-full border text-sm font-bold md:static md:h-auto md:w-auto md:rounded-none md:border-none md:bg-transparent md:text-xl">
+                class="border-border bg-muted/70 absolute -left-12 flex size-8 items-center justify-center rounded-full border text-sm font-bold md:static md:h-auto md:w-auto md:rounded-none md:border-none md:bg-transparent md:text-xl"
+              >
                 {{ item.year }}
               </div>
             </div>

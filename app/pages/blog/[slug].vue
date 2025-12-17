@@ -52,7 +52,10 @@ if (post.value.image?.src) {
           variant="subtle"
         />
         <span class="text-muted">&middot;</span>
-        <NuxtTime :datetime="post.date" class="text-muted" />
+        <NuxtTime
+          :datetime="post.date"
+          class="text-muted"
+        />
       </template>
 
       <div class="flex flex-wrap items-center gap-3 mt-4">

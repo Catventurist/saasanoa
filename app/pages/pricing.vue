@@ -56,8 +56,7 @@ const items = ref([
       :title="page.title"
       :description="page.description"
     >
-      <ClientOnly>
-      </ClientOnly>
+      <ClientOnly />
       <template #links>
         <UTabs
           v-model="isYearly"

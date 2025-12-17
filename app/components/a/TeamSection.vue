@@ -74,12 +74,23 @@ const defaultMembers: TeamMember[] = [
         </p>
       </div>
       <div class="flex flex-wrap items-center justify-center gap-8">
-        <div v-for="member in defaultMembers" :key="member.name" class="group bg-muted/70 h-[420px] w-96 overflow-hidden rounded-xl opacity-100 shadow-sm transition-opacity hover:opacity-75">
+        <div
+          v-for="member in defaultMembers"
+          :key="member.name"
+          class="group bg-muted/70 h-[420px] w-96 overflow-hidden rounded-xl opacity-100 shadow-sm transition-opacity hover:opacity-75"
+        >
           <div class="relative h-[200px] w-full overflow-hidden">
-            <NuxtImg :src="member.imageUrl" :alt="member.name" class="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+            <NuxtImg
+              :src="member.imageUrl"
+              :alt="member.name"
+              class="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
           <div class="flex h-[220px] flex-col p-5">
-            <div v-if="member.location" class="text-muted mb-1 flex items-center text-xs duration-300 hover:text-default">
+            <div
+              v-if="member.location"
+              class="text-muted mb-1 flex items-center text-xs duration-300 hover:text-default"
+            >
               <div class="bg-info mr-1.5 size-1.5 rounded-full" />
               {{ member.location }}
             </div>
@@ -95,13 +106,32 @@ const defaultMembers: TeamMember[] = [
               </p>
             </div>
             <div class="mt-auto">
-              <div v-if="member.socialLinks" class="flex space-x-3">
+              <div
+                v-if="member.socialLinks"
+                class="flex space-x-3"
+              >
                 <NuxtLink
-                  v-for="link in member.socialLinks" :key="link.platform" :to="link.url" rel="noopener noreferrer"
-                  class="bg-default/80 text-muted hover:bg-info/40 hover:text-primary flex size-8 items-center justify-center rounded-full transition-all">
-                  <Icon v-if="link.platform === 'github'" name="lucide-github" class="size-4" />
-                  <Icon v-if="link.platform === 'gitlab'" name="lucide-gitlab" class="size-4" />
-                  <Icon v-if="link.platform === 'hive'" name="simple-icons-hive-blockchain" class="size-4" />
+                  v-for="link in member.socialLinks"
+                  :key="link.platform"
+                  :to="link.url"
+                  rel="noopener noreferrer"
+                  class="bg-default/80 text-muted hover:bg-info/40 hover:text-primary flex size-8 items-center justify-center rounded-full transition-all"
+                >
+                  <Icon
+                    v-if="link.platform === 'github'"
+                    name="lucide-github"
+                    class="size-4"
+                  />
+                  <Icon
+                    v-if="link.platform === 'gitlab'"
+                    name="lucide-gitlab"
+                    class="size-4"
+                  />
+                  <Icon
+                    v-if="link.platform === 'hive'"
+                    name="simple-icons-hive-blockchain"
+                    class="size-4"
+                  />
                 </NuxtLink>
               </div>
             </div>

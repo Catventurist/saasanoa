@@ -72,18 +72,30 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 <template>
   <div>
     <UAuthForm
-      :fields="fields" :schema="schema" :providers="providers" :title="$t('signup.create.title')"
-      :submit="{ label: $t('signup.create.title') }" :separator="$t('login.or')" @submit="onSubmit">
+      :fields="fields"
+      :schema="schema"
+      :providers="providers"
+      :title="$t('signup.create.title')"
+      :submit="{ label: $t('signup.create.title') }"
+      :separator="$t('login.or')"
+      @submit="onSubmit"
+    >
       <template #description>
         {{ $t('signup.create.description') }}
-        <ULink :to="localePath('/login')" class="text-primary font-medium">
+        <ULink
+          :to="localePath('/login')"
+          class="text-primary font-medium"
+        >
           {{ $t('login.title') }}
         </ULink>.
       </template>
 
       <template #footer>
         {{ $t('login.disclaimer') }}
-        <ULink :to="localePath('/')" class="text-primary font-medium">
+        <ULink
+          :to="localePath('/')"
+          class="text-primary font-medium"
+        >
           {{ $t('login.terms') }}
         </ULink>.
       </template>

@@ -59,23 +59,42 @@ function onSubmit() {
 
 <template>
   <Motion
-    as-child :initial="{ opacity: 0, y: 10 }" :while-in-view="{ opacity: 1, y: 0 }"
-    :transition="{ duration: 0.3, y: { type: 'spring', stiffness: 260, damping: 20 } }">
-    <USeparator icon="lucide:cat" class="h-1 bg-radial from-primary/40 to-transparent mt-2" />
+    as-child
+    :initial="{ opacity: 0, y: 10 }"
+    :while-in-view="{ opacity: 1, y: 0 }"
+    :transition="{ duration: 0.3, y: { type: 'spring', stiffness: 260, damping: 20 } }"
+  >
+    <USeparator
+      icon="lucide:cat"
+      class="h-1 bg-radial from-primary/40 to-transparent mt-2"
+    />
     <UFooter :ui="{ top: 'border-b border-default' }">
       <template #top>
         <UContainer>
           <UFooterColumns :columns="columns">
             <template #right>
               <form @submit.prevent="onSubmit">
-                <UFormField name="email" :label="$t('header.subscribe.description')" size="lg">
+                <UFormField
+                  name="email"
+                  :label="$t('header.subscribe.description')"
+                  size="lg"
+                >
                   <UInput
-                    v-model="email" type="email" class="w-full"
-                    :placeholder="$t('header.subscribe.enter')" disabled>
+                    v-model="email"
+                    type="email"
+                    class="w-full"
+                    :placeholder="$t('header.subscribe.enter')"
+                    disabled
+                  >
                     <template #trailing>
                       <UButton
-                        type="submit" size="xs" color="info" variant="soft" trailing-icon="lucide-send"
-                        :label="$t('header.subscribe.title')" />
+                        type="submit"
+                        size="xs"
+                        color="info"
+                        variant="soft"
+                        trailing-icon="lucide-send"
+                        :label="$t('header.subscribe.title')"
+                      />
                     </template>
                   </UInput>
                 </UFormField>
@@ -91,14 +110,32 @@ function onSubmit() {
       </template>
       <template #right>
         <UButton
-          to="https://t.me/catventurists" target="_blank" icon="i-simple-icons-telegram" aria-label="Telegram"
-          color="info" variant="ghost" title="Telegram" />
+          to="https://t.me/catventurists"
+          target="_blank"
+          icon="i-simple-icons-telegram"
+          aria-label="Telegram"
+          color="info"
+          variant="ghost"
+          title="Telegram"
+        />
         <UButton
-          to="https://ecency.com/@catventurist" target="_blank" icon="i-simple-icons-hive-blockchain"
-          aria-label="Ecency/Hive" color="error" variant="ghost" title="Ecency/Hive" />
+          to="https://ecency.com/@catventurist"
+          target="_blank"
+          icon="i-simple-icons-hive-blockchain"
+          aria-label="Ecency/Hive"
+          color="error"
+          variant="ghost"
+          title="Ecency/Hive"
+        />
         <UButton
-          to="https://github.com/catventurist" target="_blank" icon="i-simple-icons-github" aria-label="GitHub"
-          color="neutral" variant="ghost" title="Github" />
+          to="https://github.com/catventurist"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+          title="Github"
+        />
       </template>
     </UFooter>
   </Motion>

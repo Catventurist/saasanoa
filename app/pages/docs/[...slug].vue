@@ -80,8 +80,14 @@ const links = ref<PageLink[]>([
     >
       <UContentToc :links="page.body.toc.links">
         <template #bottom>
-          <USeparator v-if="page.body?.toc?.links?.length" class="bg-radial from-primary/40 to-transparent" />
-          <UPageLinks :title="$t('links.title')" :links="links" />
+          <USeparator
+            v-if="page.body?.toc?.links?.length"
+            class="bg-radial from-primary/40 to-transparent"
+          />
+          <UPageLinks
+            :title="$t('links.title')"
+            :links="links"
+          />
         </template>
       </UContentToc>
     </template>

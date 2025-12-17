@@ -28,18 +28,31 @@ defineOgImageComponent('Saas')
 
 <template>
   <UContainer v-if="post">
-    <UPageHeader :title="post.title" :description="post.description">
+    <UPageHeader
+      :title="post.title"
+      :description="post.description"
+    >
       <template #headline>
-        <UBadge :title="post.title" variant="subtle" />
+        <UBadge
+          :title="post.title"
+          variant="subtle"
+        />
       </template>
       <div class="flex flex-wrap items-center gap-3 mt-4">
-        <UAvatar :src="post.avatar.src" alt="Avatar" size="2xl" />
+        <UAvatar
+          :src="post.avatar.src"
+          alt="Avatar"
+          size="2xl"
+        />
         {{ post.name }}
       </div>
     </UPageHeader>
     <UPage>
       <UPageBody>
-        <ContentRenderer v-if="post" :value="post" />
+        <ContentRenderer
+          v-if="post"
+          :value="post"
+        />
       </UPageBody>
     </UPage>
   </UContainer>

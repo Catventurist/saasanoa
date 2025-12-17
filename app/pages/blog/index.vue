@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { withLeadingSlash } from 'ufo'
 import type { PageCollections } from '@nuxt/content'
-import { Motion } from 'motion-v'
 
 const route = useRoute()
 const { locale } = useI18n()

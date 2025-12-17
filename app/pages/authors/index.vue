@@ -29,11 +29,23 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPageSection :title="title" :description="description" icon="i-lucide-users">
-    <div v-if="authors" class="flex flex-col gap-2 items-center justify-center">
+  <UPageSection
+    :title="title"
+    :description="description"
+    icon="i-lucide-users"
+  >
+    <div
+      v-if="authors"
+      class="flex flex-col gap-2 items-center justify-center"
+    >
       <UUser
-        v-for="author in authors" :key="author.name" :to="author.to" :name="author.name"
-        :description="author.username ? `@${author.username}` : ''" :avatar="author.avatar">
+        v-for="author in authors"
+        :key="author.name"
+        :to="author.to"
+        :name="author.name"
+        :description="author.username ? `@${author.username}` : ''"
+        :avatar="author.avatar"
+      >
         <template #name>
           <div class="flex gap-2">
             <span class="text-sm font-medium">
@@ -46,7 +58,13 @@ useSeoMeta({
         </template>
         <template #description>
           <div class="flex gap-2">
-            <UBadge v-for="module in author.modules" :key="module" variant="soft" size="sm" color="primary">
+            <UBadge
+              v-for="module in author.modules"
+              :key="module"
+              variant="soft"
+              size="sm"
+              color="primary"
+            >
               {{ module }}
             </UBadge>
           </div>

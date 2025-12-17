@@ -76,27 +76,42 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 
 <template>
   <div>
-    <ClientOnly>
-    </ClientOnly>
+    <ClientOnly />
     <UAuthForm
-      :fields="fields" :schema="schema" :providers="providers" :title="$t('login.welcome.title')"
-      :separator="$t('login.or')" icon="i-lucide-lock" @submit="onSubmit">
+      :fields="fields"
+      :schema="schema"
+      :providers="providers"
+      :title="$t('login.welcome.title')"
+      :separator="$t('login.or')"
+      icon="i-lucide-lock"
+      @submit="onSubmit"
+    >
       <template #description>
         {{ $t('login.welcome.description') }}
-        <ULink :to="localePath('/signup')" class="text-primary font-medium">
+        <ULink
+          :to="localePath('/signup')"
+          class="text-primary font-medium"
+        >
           {{ $t('login.signup') }}
         </ULink>.
       </template>
 
       <template #password-hint>
-        <ULink :to="localePath('/')" class="text-primary font-medium" tabindex="-1">
+        <ULink
+          :to="localePath('/')"
+          class="text-primary font-medium"
+          tabindex="-1"
+        >
           {{ $t('login.forgot') }}
         </ULink>
       </template>
 
       <template #footer>
         {{ $t('login.disclaimer') }}
-        <ULink :to="localePath('/')" class="text-primary font-medium">
+        <ULink
+          :to="localePath('/')"
+          class="text-primary font-medium"
+        >
           {{ $t('login.terms') }}
         </ULink>.
       </template>
