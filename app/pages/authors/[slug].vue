@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { withLeadingSlash } from 'ufo'
-import type { AuthorsEnCollectionItem, AuthorsFiCollectionItem, Collections } from '@nuxt/content'
+import type { Collections } from '@nuxt/content'
 
 const route = useRoute()
 const { locale } = useI18n()
@@ -51,7 +51,7 @@ defineOgImageComponent('Saas')
       <UPageBody>
         <ContentRenderer
           v-if="author"
-          :value="author.body"
+          :value="author"
         />
       </UPageBody>
     </UPage>
