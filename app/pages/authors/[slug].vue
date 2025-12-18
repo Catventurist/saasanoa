@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { withLeadingSlash } from 'ufo'
-import type { Collections } from '@nuxt/content'
+import type { AuthorsEnCollectionItem, AuthorsFiCollectionItem, Collections } from '@nuxt/content'
 
 const route = useRoute()
 const { locale } = useI18n()
 const slug = computed(() => withLeadingSlash(String(route.params.slug)))
 
-const { data: post } = await useAsyncData('authors-' + slug.value, () => queryCollection('authors_' + locale.value as keyof Collections).path(route.path).first(), {
+const { data: author } = await useAsyncData('authors-' + slug.value, () => queryCollection('authors_' + locale.value as keyof Collections).path(route.path).first(), {
   watch: [locale]
 })
-if (!post.value) {
+if (!author.value) {
   throw createError({ statusCode: 404, statusMessage: $t('empty.authors'), fatal: true })
 }
 
-const title = post.value.seo?.title || post.value.title
-const description = post.value.seo?.description || post.value.description
+const title = author.value.seo?.title || author.value.title
+const description = author.value.seo?.description || author.value.description
 
 useSeoMeta({
   title,
@@ -27,31 +27,31 @@ defineOgImageComponent('Saas')
 </script>
 
 <template>
-  <UContainer v-if="post">
+  <UContainer v-if="author">
     <UPageHeader
-      :title="post.title"
-      :description="post.description"
+      :title="author.title"
+      :description="author.description"
     >
       <template #headline>
         <UBadge
-          :title="post.title"
+          :title="author.title"
           variant="subtle"
         />
       </template>
       <div class="flex flex-wrap items-center gap-3 mt-4">
         <UAvatar
-          :src="post.avatar.src"
+          :src="author.avatar.src"
           alt="Avatar"
           size="2xl"
         />
-        {{ post.name }}
+        {{ author.name }}
       </div>
     </UPageHeader>
     <UPage>
       <UPageBody>
         <ContentRenderer
-          v-if="post"
-          :value="post"
+          v-if="author"
+          :value="author.body"
         />
       </UPageBody>
     </UPage>

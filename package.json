@@ -15,16 +15,16 @@
     "@iconify-json/simple-icons": "^1.2.63",
     "@nuxt/content": "^3.9.0",
     "@nuxt/image": "^2.0.0",
-    "@nuxt/ui": "^4.2.1",
+    "@nuxt/ui": "^4.3.0",
     "@nuxtjs/i18n": "10.2.1",
-    "@standard-schema/spec": "^1.0.0",
+    "@standard-schema/spec": "^1.1.0",
     "@vueuse/nuxt": "^13.9.0",
     "better-sqlite3": "^12.5.0",
     "minimatch": "^10.1.1",
     "nuxt": "^4.2.2",
     "nuxt-og-image": "^5.1.13",
-    "nuxt-studio": "1.0.0-alpha.4",
-    "zod": "^4.1.13"
+    "nuxt-studio": "v1.0.0-beta.0",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@iconify-json/vscode-icons": "^1.2.37",

@@ -155,10 +155,8 @@ export const collections = {
     })
   }),
   authors_en: defineCollection({
+    source: '5.authors/**/*',
     type: 'page',
-    source: {
-      include: '5.authors/**/*'
-    },
     schema: createAuthorsSchema()
   }),
   index_fi: defineCollection({
@@ -271,10 +269,8 @@ export const collections = {
     })
   }),
   authors_fi: defineCollection({
+    source: 'fi/5.authors/**/*',
     type: 'page',
-    source: {
-      include: 'fi/5.authors/**/*'
-    },
     schema: createAuthorsSchema()
   })
 }

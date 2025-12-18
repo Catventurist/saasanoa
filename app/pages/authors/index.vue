@@ -39,7 +39,7 @@ useSeoMeta({
       class="flex flex-col gap-2 items-center justify-center"
     >
       <UUser
-        v-for="author in authors"
+        v-for="author in authors as any"
         :key="author.name"
         :to="author.to"
         :name="author.name"
