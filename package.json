@@ -23,10 +23,11 @@
     "minimatch": "^10.1.1",
     "nuxt": "^4.2.2",
     "nuxt-og-image": "^5.1.13",
-    "nuxt-studio": "v1.0.0-beta.0",
+    "nuxt-studio": "v1.0.0-beta.1",
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@iconify-json/tabler": "^1.2.24",
     "@iconify-json/vscode-icons": "^1.2.37",
     "@nuxt/eslint": "^1.12.1",
     "eslint": "^9.39.2",

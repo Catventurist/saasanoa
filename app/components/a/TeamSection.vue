@@ -7,7 +7,7 @@ interface TeamMember {
   location?: string
   socialLinks?: {
     platform: 'github' | 'gitlab' | 'hive'
-    url: string
+    to: string
   }[]
 }
 
@@ -19,44 +19,22 @@ const defaultMembers: TeamMember[] = [
     imageUrl: '/catbirchdark.webp',
     location: $t('user.location'),
     socialLinks: [
-      { platform: 'gitlab', url: 'https://gitlab.com/catventurist' },
-      { platform: 'github', url: 'https://github.com/catventurist' },
-      { platform: 'hive', url: 'https://ecency.com/@catventurist' }
+      { platform: 'gitlab', to: 'https://gitlab.com/catventurist' },
+      { platform: 'github', to: 'https://github.com/catventurist' },
+      { platform: 'hive', to: 'https://ecency.com/@catventurist' }
+    ]
+  },
+  {
+    name: $t('algo.title'),
+    role: $t('algo.role'),
+    bio: $t('algo.description'),
+    imageUrl: '/catbirchdark.webp',
+    location: $t('algo.location'),
+    socialLinks: [
+      { platform: 'gitlab', to: 'https://gitlab.com' },
+      { platform: 'github', to: 'https://github.com' }
     ]
   }
-  /* {
-    name: 'Sarah Chen',
-    role: 'Lead Designer',
-    bio: 'Award-winning designer with a passion for creating beautiful, functional interfaces that delight users.',
-    imageUrl: '/catbirchdark.webp',
-    location: 'New York, NY',
-    socialLinks: [
-      { platform: 'gitlab', url: 'https://gitlab.com' },
-      { platform: 'hive', url: 'https://ecency.com' }
-    ]
-  },
-  {
-    name: 'Marcus Johnson',
-    role: 'Senior Developer',
-    bio: 'Full-stack developer with expertise in React, Node.js, and cloud architecture. Building scalable solutions for complex problems.',
-    imageUrl: '/catbirchdark.webp',
-    location: 'Berlin, Germany',
-    socialLinks: [
-      { platform: 'github', url: 'https://github.com' },
-      { platform: 'hive', url: 'https://ecency.com' }
-    ]
-  },
-  {
-    name: 'Priya Patel',
-    role: 'Product Manager',
-    bio: 'Strategic thinker with a track record of launching successful products that users love and businesses value.',
-    imageUrl: '/catbirchdark.webp',
-    location: 'London, UK',
-    socialLinks: [
-      { platform: 'gitlab', url: 'https://gitlab.com' },
-      { platform: 'hive', url: 'https://ecency.com' }
-    ]
-  } */
 ]
 </script>
 
@@ -113,7 +91,7 @@ const defaultMembers: TeamMember[] = [
                 <NuxtLink
                   v-for="link in member.socialLinks"
                   :key="link.platform"
-                  :to="link.url"
+                  :to="link.to"
                   rel="noopener noreferrer"
                   class="bg-default/80 text-muted hover:bg-info/40 hover:text-primary flex size-8 items-center justify-center rounded-full transition-all"
                 >

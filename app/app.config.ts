@@ -7,6 +7,8 @@ export default defineAppConfig({
   },
   theme: {
     radius: 0.25,
-    blackAsPrimary: false
+    blackAsPrimary: false,
+    icons: 'lucide',
+    font: 'Finlandica'
   }
 })

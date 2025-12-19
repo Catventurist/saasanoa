@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex items-center justify-center px-14">
+  <UContainer class="h-screen flex items-center justify-center px-14">
     <UButton
       icon="i-lucide-chevron-left"
       to="/"
@@ -15,5 +15,5 @@
     >
       <slot />
     </UPageCard>
-  </div>
+  </UContainer>
 </template>

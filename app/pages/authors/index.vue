@@ -36,10 +36,10 @@ useSeoMeta({
   >
     <div
       v-if="authors"
-      class="flex flex-col gap-2 items-center justify-center"
+      class="min-h-40 flex flex-col gap-2 items-center justify-around"
     >
       <UUser
-        v-for="author in authors as any"
+        v-for="author in authors"
         :key="author.name"
         :to="author.to"
         :name="author.name"
@@ -59,13 +59,13 @@ useSeoMeta({
         <template #description>
           <div class="flex gap-2">
             <UBadge
-              v-for="module in author.modules"
-              :key="module"
+              v-for="local in author.locales"
+              :key="local"
               variant="soft"
               size="sm"
               color="primary"
             >
-              {{ module }}
+              {{ local }}
             </UBadge>
           </div>
         </template>

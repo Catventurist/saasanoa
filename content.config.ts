@@ -1,9 +1,6 @@
 import { defineCollection, property } from '@nuxt/content'
 import { z } from 'zod/v4'
 
-const variantEnum = z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link'])
-const colorEnum = z.enum(['primary', 'secondary', 'neutral', 'error', 'warning', 'success', 'info'])
-const sizeEnum = z.enum(['xs', 'sm', 'md', 'lg', 'xl'])
 const orientationEnum = z.enum(['vertical', 'horizontal'])
 
 const createBaseSchema = () => z.object({
@@ -15,33 +12,11 @@ const createFeatureItemSchema = () => createBaseSchema().extend({
   icon: property(z.string()).editor({ input: 'icon' })
 })
 
-const createLinkSchema = () => z.object({
-  label: z.string().nonempty(),
-  to: z.string().nonempty(),
-  icon: property(z.string()).editor({ input: 'icon' }),
-  size: sizeEnum.optional(),
-  trailing: z.boolean().optional(),
-  target: z.string().optional(),
-  color: colorEnum.optional(),
-  variant: variantEnum.optional()
-})
-
 const createImageSchema = () => z.object({
   src: property(z.string()).editor({ input: 'media' }),
   alt: z.string().optional(),
   loading: z.enum(['lazy', 'eager']).optional(),
   srcset: z.string().optional()
-})
-
-const createAuthorsSchema = () => z.object({
-  name: z.string(),
-  avatar: z.object({
-    src: property(z.string()).editor({ input: 'media' }),
-    alt: z.string()
-  }),
-  to: z.string(),
-  username: z.string(),
-  modules: z.array(z.string())
 })
 
 export const collections = {
@@ -50,7 +25,7 @@ export const collections = {
     type: 'page',
     schema: z.object({
       hero: z.object(({
-        links: z.array(createLinkSchema())
+        links: z.array(property(z.object({})).inherit('@nuxt/ui/components/Button.vue'))
       })),
       sections: z.array(
         createBaseSchema().extend({
@@ -79,7 +54,7 @@ export const collections = {
         )
       }),
       cta: createBaseSchema().extend({
-        links: z.array(createLinkSchema())
+        links: z.array(property(z.object({})).inherit('@nuxt/ui/components/Button.vue'))
       })
     })
   }),
@@ -101,7 +76,7 @@ export const collections = {
           }),
           billing_period: z.string().nonempty(),
           billing_cycle: z.string().nonempty(),
-          button: createLinkSchema(),
+          button: property(z.object({})).inherit('@nuxt/ui/components/Button.vue'),
           features: z.array(z.string().nonempty()),
           highlight: z.boolean().optional()
         })
@@ -128,12 +103,18 @@ export const collections = {
     source: '3.blog/**/*',
     type: 'page',
     schema: z.object({
-      image: z.object({ src: property(z.string()).editor({ input: 'media' }) }),
+      image: z.object({
+        src: property(z.string()).editor({ input: 'media' }),
+        alt: z.string()
+      }),
       authors: z.array(
         z.object({
           name: z.string().nonempty(),
           to: z.string().nonempty(),
-          avatar: z.object({ src: property(z.string()).editor({ input: 'media' }) })
+          avatar: z.object({
+            src: property(z.string()).editor({ input: 'media' }),
+            alt: z.string()
+          })
         })
       ),
       date: z.date(),
@@ -151,20 +132,30 @@ export const collections = {
       title: z.string().nonempty(),
       description: z.string(),
       date: z.date(),
-      image: z.string()
+      image: property(z.string()).editor({ input: 'media' })
     })
   }),
   authors_en: defineCollection({
     source: '5.authors/**/*',
     type: 'page',
-    schema: createAuthorsSchema()
+    schema: z.object({
+      name: z.string(),
+      avatar: z.object({
+        src: property(z.string()).editor({ input: 'media' }),
+        alt: z.string()
+      }),
+      to: z.string(),
+      username: z.string(),
+      locales: z.array(z.string()),
+      links: z.array(property(z.object({})).inherit('@nuxt/ui/components/Button.vue'))
+    })
   }),
   index_fi: defineCollection({
     source: 'fi/0.index.yml',
     type: 'page',
     schema: z.object({
       hero: z.object(({
-        links: z.array(createLinkSchema())
+        links: z.array(property(z.object({})).inherit('@nuxt/ui/components/Button.vue'))
       })),
       sections: z.array(
         createBaseSchema().extend({
@@ -193,7 +184,7 @@ export const collections = {
         )
       }),
       cta: createBaseSchema().extend({
-        links: z.array(createLinkSchema())
+        links: z.array(property(z.object({})).inherit('@nuxt/ui/components/Button.vue'))
       })
     })
   }),
@@ -215,7 +206,7 @@ export const collections = {
           }),
           billing_period: z.string().nonempty(),
           billing_cycle: z.string().nonempty(),
-          button: createLinkSchema(),
+          button: property(z.object({})).inherit('@nuxt/ui/components/Button.vue'),
           features: z.array(z.string().nonempty()),
           highlight: z.boolean().optional()
         })
@@ -242,12 +233,18 @@ export const collections = {
     source: 'fi/3.blog/**/*',
     type: 'page',
     schema: z.object({
-      image: z.object({ src: property(z.string()).editor({ input: 'media' }) }),
+      image: z.object({
+        src: property(z.string()).editor({ input: 'media' }),
+        alt: z.string()
+      }),
       authors: z.array(
         z.object({
           name: z.string().nonempty(),
           to: z.string().nonempty(),
-          avatar: z.object({ src: property(z.string()).editor({ input: 'media' }) })
+          avatar: z.object({
+            src: property(z.string()).editor({ input: 'media' }),
+            alt: z.string()
+          })
         })
       ),
       date: z.date(),
@@ -265,12 +262,22 @@ export const collections = {
       title: z.string().nonempty(),
       description: z.string(),
       date: z.date(),
-      image: z.string()
+      image: property(z.string()).editor({ input: 'media' })
     })
   }),
   authors_fi: defineCollection({
     source: 'fi/5.authors/**/*',
     type: 'page',
-    schema: createAuthorsSchema()
+    schema: z.object({
+      name: z.string(),
+      avatar: z.object({
+        src: property(z.string()).editor({ input: 'media' }),
+        alt: z.string()
+      }),
+      to: z.string(),
+      username: z.string(),
+      locales: z.array(z.string()),
+      links: z.array(property(z.object({})).inherit('@nuxt/ui/components/Button.vue'))
+    })
   })
 }

@@ -555,6 +555,8 @@ theme:
   primary: Primary
   tone: Tone
   radius: Radius
+  font: Font
+  icons: Icons
   black: Black
   mode: Mode
   dark: Dark
@@ -582,6 +584,8 @@ theme:
   fuchsia: Fuchsia
   pink: Pink
   rose: Rose
+  export: Export
+  reset: Reset Theme
 quotes:
   title: Quotes
   description: From wise people

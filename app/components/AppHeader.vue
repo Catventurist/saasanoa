@@ -35,6 +35,11 @@ const items = computed(() => [{
       description: $t('header.pricing.description'),
       to: localePath('/pricing'),
       icon: 'lucide-bitcoin'
+    }, {
+      label: $t('header.users.title'),
+      description: $t('header.users.description'),
+      to: localePath('/authors'),
+      icon: 'lucide-users'
     }
   ]
 }, {

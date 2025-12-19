@@ -27,3 +27,4 @@ bun.lock
 # VSC
 .history
 content/fi/5.authors/claude.md
+app/components/.old

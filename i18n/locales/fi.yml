@@ -553,6 +553,8 @@ theme:
   primary: Pääväri
   tone: Sävy
   radius: Pyöristys
+  font: Fontti
+  icons: Kuvakkeet
   black: Musta
   mode: Teema
   dark: Tumma
@@ -580,6 +582,8 @@ theme:
   fuchsia: Fuksia
   pink: Pinkki
   rose: Ruusu
+  export: Vie
+  reset: Oletusteema
 quotes:
   title: Lainauksia
   description: Fiksuilta tyypeiltä

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { withLeadingSlash } from 'ufo'
-import type { PageCollections } from '@nuxt/content'
+import type { Collections, PageCollections } from '@nuxt/content'
 
 const route = useRoute()
 const { locale } = useI18n()
@@ -13,7 +13,7 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: $t('empty.post'), fatal: true })
 }
 
-const { data: posts } = await useAsyncData(route.path, () => queryCollection('posts_' + locale.value as keyof PageCollections).all(), {
+const { data: posts } = await useAsyncData(route.path, () => queryCollection('posts_' + locale.value as keyof Collections).select('title', 'path', 'description', 'image').all(), {
   watch: [locale]
 })
 

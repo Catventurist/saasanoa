@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { withLeadingSlash } from 'ufo'
-import type { Collections } from '@nuxt/content'
+import type { PageCollections } from '@nuxt/content'
 
 const route = useRoute()
 const { locale } = useI18n()
 const slug = computed(() => withLeadingSlash(String(route.params.slug)))
 
-const { data: author } = await useAsyncData('authors-' + slug.value, () => queryCollection('authors_' + locale.value as keyof Collections).path(route.path).first(), {
+const { data: author } = await useAsyncData('authors-' + slug.value, () => queryCollection('authors_' + locale.value as keyof PageCollections).path(route.path).first(), {
   watch: [locale]
 })
 if (!author.value) {
@@ -29,22 +29,18 @@ defineOgImageComponent('Saas')
 <template>
   <UContainer v-if="author">
     <UPageHeader
+      class="flex justify-center items-center"
       :title="author.title"
       :description="author.description"
     >
-      <template #headline>
-        <UBadge
-          :title="author.title"
-          variant="subtle"
-        />
-      </template>
-      <div class="flex flex-wrap items-center gap-3 mt-4">
+      <div class="flex justify-center items-center gap-3 mt-4">
         <UAvatar
           :src="author.avatar.src"
           alt="Avatar"
           size="2xl"
         />
         {{ author.name }}
+        <UButton v-for="link in author.links" :key="link.title" v-bind="link" />
       </div>
     </UPageHeader>
     <UPage>
