@@ -41,7 +41,22 @@ export const themeIcons = {
     system: 'i-lucide-monitor',
     tip: 'i-lucide-lightbulb',
     upload: 'i-lucide-upload',
-    warning: 'i-lucide-triangle-alert'
+    warning: 'i-lucide-triangle-alert',
+    logs: 'i-lucide-logs',
+    book: 'i-lucide-book',
+    help: 'i-lucide-circle-question-mark',
+    map: 'i-lucide-map',
+    notebook: 'i-lucide-notebook',
+    bitcoin: 'i-lucide-bitcoin',
+    about: 'i-lucide-badge-info',
+    users: 'i-lucide-users',
+    send: 'i-lucide-send',
+    wrench: 'i-lucide-wrench',
+    pages: 'i-lucide-book-open',
+    login: 'i-lucide-log-in',
+    signup: 'i-lucide-signature',
+    swatch: 'i-lucide-swatch-book',
+    font: 'i-lucide-type'
   },
   tabler: {
     arrowDown: 'i-tabler-arrow-down',
@@ -85,7 +100,22 @@ export const themeIcons = {
     system: 'i-tabler-device-desktop',
     tip: 'i-tabler-bulb',
     upload: 'i-tabler-upload',
-    warning: 'i-tabler-alert-triangle'
+    warning: 'i-tabler-alert-triangle',
+    logs: 'i-tabler-logs',
+    book: 'i-tabler-book-2',
+    help: 'i-tabler-help-circle',
+    map: 'i-tabler-map',
+    notebook: 'i-tabler-notebook',
+    bitcoin: 'i-tabler-currency-bitcoin',
+    about: 'i-tabler-info-octagon',
+    users: 'i-tabler-users',
+    send: 'i-tabler-send',
+    wrench: 'i-tabler-tool',
+    pages: 'i-tabler-book',
+    login: 'i-tabler-login',
+    signup: 'i-tabler-signature',
+    swatch: 'i-tabler-color-swatch',
+    font: 'i-tabler-typography'
   }
 }
 

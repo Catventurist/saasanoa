@@ -9,6 +9,10 @@ defineI18nRoute({
   }
 })
 
+definePageMeta({
+  layout: 'auth'
+})
+
 useSeoMeta({
   title: $t('login.title'),
   description: $t('login.description')

@@ -40,7 +40,11 @@ defineOgImageComponent('Saas')
           size="2xl"
         />
         {{ author.name }}
-        <UButton v-for="link in author.links" :key="link.title" v-bind="link" />
+        <UButton
+          v-for="link in author.links"
+          :key="link.title"
+          v-bind="link"
+        />
       </div>
     </UPageHeader>
     <UPage>

@@ -1,32 +1,33 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
+const appConfig = useAppConfig()
 </script>
 
 <template>
   <div class="flex flex-col gap-2 w-full items-center justify-around">
     <UButton
       :to="localePath('/blog')"
-      icon="lucide-newspaper"
-      aria-label="Blog"
+      :icon="appConfig.ui.icons.notebook"
+      :aria-label="$t('header.blog.title')"
       color="info"
       variant="ghost"
-      title="Blog"
+      :title="$t('header.blog.title')"
     />
     <UButton
       :to="localePath('/changelog')"
-      icon="lucide-list"
-      aria-label="Changelog"
+      :icon="appConfig.ui.icons.logs"
+      :aria-label="$t('header.changelog.title')"
       color="error"
       variant="ghost"
-      title="Changelog"
+      :title="$t('header.changelog.title')"
     />
     <UButton
       :to="localePath('/pricing')"
-      icon="lucide-info"
-      aria-label="Info"
+      :icon="appConfig.ui.icons.bitcoin"
+      :aria-label="$t('header.pricing.title')"
       color="neutral"
       variant="ghost"
-      title="Info"
+      :title="$t('header.pricing.title')"
     />
   </div>
 </template>

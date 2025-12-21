@@ -17,6 +17,13 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   content: {
+    build: {
+      markdown: {
+        highlight: {
+          noApiRoute: false
+        } as any
+      }
+    },
     database: {
       type: 'sqlite',
       filename: 'contents.sqlite'

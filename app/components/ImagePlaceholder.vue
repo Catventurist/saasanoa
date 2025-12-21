@@ -4,7 +4,7 @@
   >
     <div class="relative overflow-hidden rounded-sm border border-dashed border-accented opacity-75 px-4 flex items-center justify-center aspect-video">
       <svg
-        class="absolute inset-0 h-full w-full stroke-inverted/10"
+        class="absolute inset-0 size-full stroke-inverted/10"
         fill="none"
       >
         <defs>

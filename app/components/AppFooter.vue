@@ -1,24 +1,25 @@
 <script setup lang="ts">
 import { Motion } from 'motion-v'
 
+const appConfig = useAppConfig()
 const localePath = useLocalePath()
 const columns = [{
   label: $t('header.resources'),
   children: [{
     label: $t('header.changelog.title'),
     to: localePath('/changelog'),
-    icon: 'lucide-logs'
+    icon: appConfig.ui.icons.logs
   }, {
     label: $t('header.docs'),
-    icon: 'lucide-book-a',
+    icon: appConfig.ui.icons.book,
     to: localePath('/docs/getting-started')
   }, {
     label: $t('header.help'),
-    icon: 'lucide-message-circle-question-mark',
+    icon: appConfig.ui.icons.help,
     to: localePath('/docs/getting-started')
   }, {
     label: $t('header.roadmap'),
-    icon: 'lucide-map',
+    icon: appConfig.ui.icons.map,
     to: localePath('/pricing')
   }]
 }, {
@@ -26,19 +27,19 @@ const columns = [{
   children: [{
     label: $t('header.blog'),
     to: localePath('/blog'),
-    icon: 'lucide-book-open'
+    icon: appConfig.ui.icons.notebook
   }, {
     label: $t('header.pricing.title'),
     to: localePath('/pricing'),
-    icon: 'lucide-receipt-euro'
+    icon: appConfig.ui.icons.bitcoin
   }, {
     label: $t('header.about'),
     to: localePath('/docs/getting-started'),
-    icon: 'lucide-badge-info'
+    icon: appConfig.ui.icons.about
   }, {
-    label: $t('header.projects.title'),
-    to: localePath('/docs/getting-started'),
-    icon: 'lucide-anvil'
+    label: $t('header.users.title'),
+    to: localePath('/authors'),
+    icon: appConfig.ui.icons.users
   }]
 }]
 
@@ -92,7 +93,7 @@ function onSubmit() {
                         size="xs"
                         color="info"
                         variant="soft"
-                        trailing-icon="lucide-send"
+                        :trailing-icon="appConfig.ui.icons.send"
                         :label="$t('header.subscribe.title')"
                       />
                     </template>

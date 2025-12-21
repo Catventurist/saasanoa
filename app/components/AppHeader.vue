@@ -1,51 +1,52 @@
 <script setup lang="ts">
 const route = useRoute()
 const localePath = useLocalePath()
+const appConfig = useAppConfig()
 
 const items = computed(() => [{
   label: $t('header.docs'),
-  to: localePath('/docs'),
-  icon: 'lucide-book-a',
+  to: localePath('/docs/getting-started'),
+  icon: appConfig.ui.icons.book,
   active: route.path.startsWith(localePath('/docs')),
   children: [
     {
       label: $t('header.introduction.title'),
       description: $t('header.introduction.description'),
-      icon: 'i-lucide-book',
+      icon: appConfig.ui.icons.book,
       to: localePath('/docs/getting-started')
     },
     {
       label: $t('header.essentials.title'),
       description: $t('header.essentials.description'),
-      icon: 'i-lucide-wrench',
+      icon: appConfig.ui.icons.wrench,
       to: localePath('/docs/essentials')
     }
   ]
 }, {
   label: $t('header.pages'),
-  icon: 'lucide-notebook',
+  icon: appConfig.ui.icons.pages,
   children: [
     {
       label: $t('header.changelog.title'),
       description: $t('header.changelog.description'),
       to: localePath('/changelog'),
-      icon: 'lucide-logs'
+      icon: appConfig.ui.icons.logs
     }, {
       label: $t('header.pricing.title'),
       description: $t('header.pricing.description'),
       to: localePath('/pricing'),
-      icon: 'lucide-bitcoin'
+      icon: appConfig.ui.icons.bitcoin
     }, {
       label: $t('header.users.title'),
       description: $t('header.users.description'),
       to: localePath('/authors'),
-      icon: 'lucide-users'
+      icon: appConfig.ui.icons.users
     }
   ]
 }, {
   label: $t('header.blog'),
   to: localePath('/blog'),
-  icon: 'lucide-book-open',
+  icon: appConfig.ui.icons.notebook,
   active: route.path.startsWith(localePath('/blog'))
 }])
 </script>
@@ -73,6 +74,7 @@ const items = computed(() => [{
     <UNavigationMenu
       :items="items"
       variant="link"
+      class="flex-1"
     />
 
     <template #right>
@@ -81,7 +83,7 @@ const items = computed(() => [{
       <ThemePicker />
       <ColorModeButton />
       <UButton
-        icon="i-lucide-log-in"
+        :icon="appConfig.ui.icons.login"
         color="neutral"
         variant="ghost"
         :to="localePath('/login')"
@@ -90,15 +92,15 @@ const items = computed(() => [{
       <UButton
         :title="$t('header.signin')"
         color="neutral"
-        variant="outline"
+        variant="ghost"
         :to="localePath('/login')"
-        icon="lucide-log-in"
+        :icon="appConfig.ui.icons.login"
         class="hidden lg:inline-flex"
       />
       <UButton
         :title="$t('header.signup')"
         color="neutral"
-        trailing-icon="i-lucide-arrow-big-up-dash"
+        :trailing-icon="appConfig.ui.icons.signup"
         variant="soft"
         class="hidden lg:inline-flex"
         :to="localePath('/signup')"
@@ -113,7 +115,7 @@ const items = computed(() => [{
       />
       <USeparator class="my-6" />
       <UButton
-        icon="lucide-log-in"
+        :icon="appConfig.ui.icons.login"
         :title="$t('header.signin')"
         color="neutral"
         variant="subtle"
@@ -122,7 +124,7 @@ const items = computed(() => [{
         class="mb-3"
       />
       <UButton
-        icon="lucide-arrow-big-up-dash"
+        :icon="appConfig.ui.icons.signup"
         :title="$t('header.signup')"
         color="neutral"
         variant="soft"

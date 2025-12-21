@@ -24,7 +24,7 @@ const availableLocales = computed(() => {
       <UIcon
         v-if="local.icon"
         variant="ghost"
-        class="m-0 p-0"
+        class="rounded-2xl"
         size="lg"
         :name="local.icon"
       />
