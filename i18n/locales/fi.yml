@@ -283,7 +283,16 @@ language:
   additional: Jos tarvitset muita kieliä, voit ottaa osaa luomalla PR:n.
   canuse: Voit käyttää
   cancreate: CLI:a lisätäksesi uuden kielen
+  code: Koodi
 time:
   h: t
   min: min
   weekshort: vk
+component:
+  slot: Osio
+  type: Tyyppi  
+  prop: Ominaisuus
+  default: Oletus
+  theme: Teema
+  compound: Yhdistelmävariantit
+  variants: Jotkut \`compoundVariants\` värit on jätetty pois paremman luettavuuden vuoksi. Katso lähdekoodi GitHubista.

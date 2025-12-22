@@ -80,7 +80,9 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 
 <template>
   <div>
-    <ClientOnly />
+    <ClientOnly>
+      
+    </ClientOnly>
     <UAuthForm
       :fields="fields"
       :schema="schema"

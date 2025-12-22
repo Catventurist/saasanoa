@@ -52,7 +52,6 @@ function getEmojiFlag(locale: string): string {
     }
   }
 
-  // Otherwise, use the language-to-country mapping
   const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale
   const countryCode = languageToCountry[baseLanguage] || locale.slice(0, 2)
 
@@ -67,29 +66,36 @@ function getEmojiFlag(locale: string): string {
 <template>
   <div>
     <ProseP>
-      {{ $t('language.bydefault') }} <ProseCode>{{ props.default }}</ProseCode> {{ $t('language.isused') }}.
+      {{ $t('language.bydefault') }}
+      <ProseCode>
+        {{ props.default }}
+      </ProseCode>
+      {{ $t('language.isused') }}.
     </ProseP>
     <div class="grid gap-6 grid-cols-2 md:grid-cols-3">
-      <div
-        v-for="locale in locales"
-        :key="locale.code"
-      >
+      <div v-for="locale in locales" :key="locale.code">
         <div class="flex gap-3 items-center">
           <UAvatar size="xl">
             {{ getEmojiFlag(locale.code) }}
           </UAvatar>
-
           <div class="text-sm">
-            <div class="font-semibold">{{ locale.name }}</div>
-            <div class="mt-1">Code: <ProseCode class="text-xs">{{ locale.code }}</ProseCode></div>
+            <div class="font-semibold">
+              {{ locale.name }}
+            </div>
+            <div class="mt-1">
+              {{ $t('language.code') }}:
+              <br>
+              <ProseCode class="text-xs">
+                {{ locale.code }}
+              </ProseCode>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <ProseNote
       to="https://github.com/nuxt/ui/tree/v4/src/runtime/locale"
-      target="_blank"
-    >
+      target="_blank">
       {{ $t('language.additional') }}
       <ProseCode>src/runtime/locale/</ProseCode>
     </ProseNote>
@@ -97,7 +103,9 @@ function getEmojiFlag(locale: string): string {
       {{ $t('language.canuse') }}
       <ProseCode>nuxt-ui</ProseCode>
       {{ $t('language.cancreate') }}:
-      <ProsePre language="bash">nuxt-ui make locale --code "en" --name "English"</ProsePre>
+      <ProsePre language="bash">
+        nuxt-ui make locale --code "en" --name "English"
+      </ProsePre>
     </ProseTip>
   </div>
 </template>

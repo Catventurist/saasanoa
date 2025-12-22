@@ -288,7 +288,17 @@ language:
   additional: If you need additional languages, you can contribute by creating a PR to add a new locale in
   canuse: You can use the
   cancreate: CLI to create a new locale
+  code: Code
 time:
   h: h
   min: min
   weekshort: Wk
+component:
+  slot: Slot
+  type: Type
+  prop: Prop
+  default: Default
+  theme: Theme
+  compound: Compound variants
+  variants: Some colors in \`compoundVariants\` are omitted for readability. Check out the source code on GitHub.
+  code: Code
